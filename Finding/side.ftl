@@ -37,9 +37,11 @@
             <a href="${page.pagePermalink}" target="${page.pageOpenTarget}"><#if page.pageIcon != ''><img class="page-icon" src="${page.pageIcon}"></#if>${page.pageTitle}</a>
         </li>
         </#list>
+        <#if commentable>
         <li>
             <a href="${servePath}/dynamic.html">${dynamicLabel}</a>
         </li>
+        </#if>
         <li>
             <a href="${servePath}/category.html">${categoryLabel}</a>
         </li>
@@ -73,10 +75,12 @@
         ${articleCount1Label}
         ${statistic.statisticPublishedBlogArticleCount}
     </span><br/>
+    <#if commentable>
     <span>
         ${commentCount1Label}
         ${statistic.statisticPublishedBlogCommentCount}
     </span> &nbsp; &nbsp;
+    </#if>
     <span>
         ${onlineVisitor1Label}
         ${onlineVisitorCnt}

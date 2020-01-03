@@ -62,8 +62,9 @@
             ${statistic.statisticPublishedBlogArticleCount}
             ${articleLabel}
             </a> &nbsp; &nbsp;
+            <#if commentable>
             ${statistic.statisticPublishedBlogCommentCount}
-            ${commentLabel} <br>
+            ${commentLabel}</#if> <br>
             ${statistic.statisticBlogViewCount} <span class="ft-gray">${viewLabel}</span> &nbsp; &nbsp;
             ${onlineVisitorCnt} <span class="ft-gray">${onlineVisitorLabel}</span> <br>
             &copy; ${year}
@@ -72,7 +73,7 @@
             <br>
             Powered by <a class="ft__link" href="https://solo.b3log.org" target="_blank">Solo</a>
             <br>
-            Theme <a class="ft__link" rel="friend" href="https://github.com/b3log/solo-skins" target="_blank">${skinDirName}</a>
+            Theme ${skinDirName}
             <sup>[<a class="ft__link" target="_blank" href="https://github.com/chakhsu/pinghsu">ref</a>]</sup>
             by <a class="ft__link" href="http://vanessa.b3log.org" target="_blank">Vanessa</a>
         </div>
