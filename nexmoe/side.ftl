@@ -130,7 +130,7 @@
                     <ul class="category-list">
                         <#list mostUsedCategories as category>
                             <li class="category-list-item">
-                                <a class="category-list-link mdui-ripple"
+                                <a class="category-list mdui-ripple"
                                    href="${servePath}/category/${category.categoryURI}"
                                    title="${category.categoryTitle} - ${blogTitle}">
                                     ${category.categoryTitle}</a>
@@ -142,29 +142,26 @@
             </div>
         </#if>
 
-
         <#if 0 != archiveDates?size>
             <div class="nexmoe-widget-wrap">
                 <h3 class="nexmoe-widget-title">${archiveLabel}</h3>
                 <div class="nexmoe-widget">
                     <ul class="category-list">
                         <#list archiveDates as archiveDate>
-                            <#if archiveDate_index < 10>
                                 <li class="category-list-item">
-                                    <#if "en" == localeString?substring(0, 2)>
-                                        <a class="category-list-link mdui-ripple"
-                                           href="${servePath}/archives/${archiveDate.archiveDateYear}/${archiveDate.archiveDateMonth}"
-                                           title="${archiveDate.archiveDateYear} ${yearLabel} ${archiveDate.archiveDateMonth} ${monthLabel} ${archiveLabel} - ${blogTitle}">
-                                            ${archiveDate.monthName} ${archiveDate.archiveDateYear}</a><span
-                                            class="category-list-count">${archiveDate.archiveDatePublishedArticleCount}</span>
-                                    <#else>
-                                        <a href="${servePath}/archives/${archiveDate.archiveDateYear}/${archiveDate.archiveDateMonth}"
-                                           title="${archiveDate.archiveDateYear} ${yearLabel} ${archiveDate.archiveDateMonth} ${monthLabel} ${archiveLabel} - ${blogTitle}">
-                                            ${archiveDate.archiveDateYear} ${yearLabel} ${archiveDate.archiveDateMonth} ${monthLabel}</a>
-                                        <span class="category-list-count">${archiveDate.archiveDatePublishedArticleCount}</span>
-                                    </#if>
+                                <#if "en" == localeString?substring(0, 2)>
+                                    <a class="category-list mdui-ripple"
+                                       href="${servePath}/archives/${archiveDate.archiveDateYear}/${archiveDate.archiveDateMonth}"
+                                       title="${archiveDate.archiveDateYear} ${yearLabel} ${archiveDate.archiveDateMonth} ${monthLabel} ${archiveLabel} - ${blogTitle}">
+                                        ${archiveDate.monthName} ${archiveDate.archiveDateYear}</a><span
+                                        class="category-list-count">${archiveDate.archiveDatePublishedArticleCount}</span>
+                                <#else>
+                                    <a href="${servePath}/archives/${archiveDate.archiveDateYear}/${archiveDate.archiveDateMonth}"
+                                       title="${archiveDate.archiveDateYear} ${yearLabel} ${archiveDate.archiveDateMonth} ${monthLabel} ${archiveLabel} - ${blogTitle}">
+                                        ${archiveDate.archiveDateYear} ${yearLabel} ${archiveDate.archiveDateMonth} ${monthLabel}</a>
+                                    <span class="category-list-count">${archiveDate.archiveDatePublishedArticleCount}</span>
+                                </#if>
                                 </li>
-                            </#if>
                         </#list>
                     </ul>
                 </div>
@@ -177,6 +174,6 @@
         ${footerContent} <br>
         Powered by <a href="https://solo.b3log.org" target="_blank">Solo</a> <br>
         Theme <a rel="friend" href="https://github.com/InkDP/solo-nexmoe" target="_blank">${skinDirName}</a>
-        by <a rel="friend" href="https://www.jinjianh.com" target="_blank">InkDP</a>
+        by <a rel="friend" href="https://www.inkdp.cn" target="_blank">InkDP</a>
     </div>
 </div>
