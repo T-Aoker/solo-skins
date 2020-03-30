@@ -21,7 +21,7 @@
     <span>
         ${viewCount1Label}
         <span class='error-msg'>
-            ${statistic.statisticBlogViewCount}
+            <span data-uvstaturl="${servePath}">${statistic.statisticBlogViewCount}</span>
         </span>
         &nbsp;&nbsp;
     </span>
@@ -32,13 +32,5 @@
         </span>
         &nbsp;&nbsp;
     </span>
-    <#if commentable>
-    <span>
-        ${commentCount1Label}
-        <span class='error-msg'>
-            ${statistic.statisticPublishedBlogCommentCount}
-        </span>
-    </span>
-    </#if>
 </div>
 <div class="clear"></div>

@@ -49,8 +49,8 @@
                     ${article.authorName}</a>
                 <#if commentable>
                 |
-                <a rel="nofollow" class="underline" href="${servePath}${article.articlePermalink}#comments">
-                    ${article.articleCommentCount} ${commentLabel}
+                <a rel="nofollow" class="underline" href="${servePath}${article.articlePermalink}#b3logsolocomments">
+                    <span data-uvstatcmt="${article.oId}">${article.articleCommentCount}</span> ${commentLabel}
                 </a>
                 </#if>
             </div>
@@ -71,18 +71,18 @@
 <div class="pagination right">
     <#if 1 != paginationPageNums?first>
     <a href="${servePath}${path}" title="${firstPageLabel}"><<</a>
-    <a id="previousPage" href="${servePath}${path}?p=${paginationPreviousPageNum}">${previousPageLabel}</a>
+    <a id="previousPage" href="${servePath}${path}${pagingSep}${paginationPreviousPageNum}">${previousPageLabel}</a>
     </#if>
     <#list paginationPageNums as paginationPageNum>
     <#if paginationPageNum == paginationCurrentPageNum>
-    <a href="${servePath}${path}?p=${paginationPageNum}" class="selected">${paginationPageNum}</a>
+    <a href="${servePath}${path}${pagingSep}${paginationPageNum}" class="selected">${paginationPageNum}</a>
     <#else>
-    <a href="${servePath}${path}?p=${paginationPageNum}">${paginationPageNum}</a>
+    <a href="${servePath}${path}${pagingSep}${paginationPageNum}">${paginationPageNum}</a>
     </#if>
     </#list>
     <#if paginationPageNums?last != paginationPageCount>
-    <a id="nextPage" href="${servePath}${path}?p=${paginationNextPageNum}">${nextPagePabel}</a>
-    <a title="${lastPageLabel}" href="${servePath}${path}?p=${paginationPageCount}">>></a>
+    <a id="nextPage" href="${servePath}${path}${pagingSep}${paginationNextPageNum}">${nextPagePabel}</a>
+    <a title="${lastPageLabel}" href="${servePath}${path}${pagingSep}${paginationPageCount}">>></a>
     </#if>
     &nbsp;&nbsp;${sumLabel} ${paginationPageCount} ${pageLabel}
 </div>

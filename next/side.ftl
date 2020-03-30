@@ -28,7 +28,7 @@
         <#include "../../common-template/toc.ftl"/>
     <#else>
         <section>
-            <img class="site-author-image" src="${adminUser.userAvatar}" title="${userName}"/>
+            <img class="site-author-image" src="${adminUser.userAvatar}" alt="${userName}"title="${userName}"/>
             <p class="site-author-name">${userName}</p>
             <#if "" != noticeBoard>
                 <p class="site-description motion-element">${blogSubtitle}</p>
@@ -42,29 +42,15 @@
                 </div>
 
                 <div class="site-state-item site-state-categories">
-                    <span class="site-state-item-count">${statistic.statisticBlogViewCount}</span>
+                    <span class="site-state-item-count"><span data-uvstaturl="${servePath}">${statistic.statisticBlogViewCount}</span></span>
                     <span class="site-state-item-name">${viewLabel}</span>
                 </div>
-
-                <#if commentable>
-                    <div class="site-state-item site-state-tags">
-                        <a href="${servePath}/dynamic.html">
-                            <span class="site-state-item-count">${statistic.statisticPublishedBlogCommentCount}</span>
-                            <span class="site-state-item-name">${commentLabel}</span>
-                        </a>
-                    </div>
-                </#if>
             </nav>
 
             <div class="feed-link">
                 <a href="${servePath}/rss.xml" rel="alternate">
                     RSS
                 </a>
-                <#if commentable>
-                    <a href="${servePath}/dynamic.html" rel="section">
-                        ${dynamicLabel}
-                    </a>
-                </#if>
                 <a href="${servePath}/tags.html" rel="section">
                     ${allTagsLabel}
                 </a>
@@ -73,27 +59,29 @@
                 </a>
             </div>
 
-            <div class="links-of-author">
-                <#if isLoggedIn>
-                    <span class="links-of-author-item">
+            <#if !staticSite>
+                <div class="links-of-author">
+                    <#if isLoggedIn>
+                        <span class="links-of-author-item">
                 <a href="${servePath}/admin-index.do#main" title="${adminLabel}">
                     <i class="icon-setting"></i> ${adminLabel}
                 </a>
             </span>
 
-                    <span class="links-of-author-item">
+                        <span class="links-of-author-item">
                 <a href="${logoutURL}">
                     <i class="icon-logout"></i> ${logoutLabel}
                 </a>
             </span>
-                <#else>
-                    <span class="links-of-author-item">
+                    <#else>
+                        <span class="links-of-author-item">
                 <a href="${servePath}/start">
                     ${startToUseLabel}
                 </a>
             </span>
-                </#if>
-            </div>
+                    </#if>
+                </div>
+            </#if>
 
             <#if noticeBoard??>
                 <div class="links-of-author">
