@@ -28,12 +28,8 @@
             ${statistic.statisticPublishedBlogArticleCount}
         </div>
         <div>
-            <span>${commentLabel}</span>
-            ${statistic.statisticPublishedBlogCommentCount}
-        </div>
-        <div>
-            <span>${viewLabel}</span>
-            ${statistic.statisticBlogViewCount}
+            <span class="ft-gray">${viewLabel}</span>
+            <b class="notb" data-uvstaturl="${servePath}">${statistic.statisticBlogViewCount}</b>
         </div>
     </div>
     <div class="list-content">
